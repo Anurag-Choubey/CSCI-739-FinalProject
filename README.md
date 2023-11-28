@@ -70,4 +70,17 @@ convolutional neural network on the MNIST dataset as provided at http://yann.lec
         LeNet-1     :     1.7 
         LeNet-5     :     0.95 
         LeNet-4     :     1.1
+
+
+4. Remarks
+    > The code can run only on a CPU and is not parallelized for GPU's.
+    > The convolution of each image with multiple filters has been 
+    parallelized using OpenMP. 
+    > When the Matrix operations such as matrixMultiply and matrixAdd
+    were parallelized using OpenMP, the training time per epoch actualy went up
+    from 30 seconds to 46 seconds on the author's local machine. This can only 
+    be attributed to the large overhead involved in each of the 60,000 iterations
+    per epoch.
+    > Similarly, parallelization of the convolution and pooling operations had also 
+    resulted in a drop in performance (measured as time/epoch). 
     
